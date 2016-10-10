@@ -11,7 +11,7 @@ class Kr < Formula
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
     sha256 "0c52891dc82852665cf3b8d2d5e654d5b81ca4e7af9900488a5a090369313046" => :el_capitan
-	sha256 "cd515f1eeae0635410d1f898ed5de0956d0416b322d7982f89126e2581d6959c" => :sierra
+	sha256 "dc31d441b4380eff39ed3af754646a86783558c32609f36c82bf9dc9fcf81194" => :sierra
   end
 
   depends_on "go" => :build
