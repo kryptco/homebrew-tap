@@ -2,15 +2,15 @@ require "language/go"
 class Kr < Formula
   desc "Kryptonite command line client, daemon, and SSH integration"
   homepage "https://krypt.co"
-  version "1.0.2"
+  version "1.0.3"
   head "https://github.com/agrinman/kr.git"
   url "-"
 
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
-    sha256 "47fa1dddfa1073d06b8dbb34c5a9b02cfb22c88931efa81bc74269758d9e7073" => :el_capitan
-	sha256 "b74b84427d36dca90dc57ca6e5f428d051fe4fa9196e2f8b780c9c5416b0d39f" => :sierra
+    sha256 "dac4063e2374ebf5360e9b8d8db9d4c11ccd6c4741e956dd4639e08edb9e7295" => :el_capitan
+	sha256 "d36498852b0bc6faa0660ad844cb9a98e61b626441af3863704344ca88bbff7a" => :sierra
   end
 
   depends_on "go" => :build
