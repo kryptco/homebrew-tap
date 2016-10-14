@@ -54,7 +54,7 @@ class Kr < Formula
 
 	   kr can be uninstalled by running 
 	   \tlaunchctl unload ~/Library/LaunchAgents/co.krypt.krd.plist ; rm ~/Library/LaunchAgents/co.krypt.krd.plist
-	   \tperl -0777 -pi -e 's/#Causes SSH to present your Kryptonite key if paired\\nHost \*\\n\\tPKCS11Provider \/usr\/local\/lib\/kr-pkcs11.so//g' ~/.ssh/config
+	   \tperl -0777 -pi -e 's/#Causes SSH to present your Kryptonite key if paired\\nHost \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so//g' ~/.ssh/config
 	   \tbrew uninstall kr
   EOS
   end
