@@ -43,7 +43,7 @@ class Kr < Formula
 
   def post_install
 	  #	add PKCS11Provider to ssh_config if not present
-	  system "touch ~/.ssh/config; perl -0777 -ne '/Host \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so/ || exit(1)' ~/.ssh/config || echo Host *\\\\n\\\\tPKCS11Provider /usr/local/lib/kr-pkcs11.so >> ~/.ssh/config"
+	  system "touch ~/.ssh/config; perl -0777 -ne '/#Causes SSH to present your Kryptonite key if paired\\nHost \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so/ || exit(1)' ~/.ssh/config || echo #Causes SSH to present your Kryptonite key if paired\\nHost *\\\\n\\\\tPKCS11Provider /usr/local/lib/kr-pkcs11.so >> ~/.ssh/config"
 	  system "cp /usr/local/share/kr/co.krypt.krd.plist ~/Library/LaunchAgents"
 	  system "launchctl unload ~/Library/LaunchAgents/co.krypt.krd.plist"
 	  system "launchctl load ~/Library/LaunchAgents/co.krypt.krd.plist"
@@ -54,7 +54,7 @@ class Kr < Formula
 
 	   kr can be uninstalled by running 
 	   \tlaunchctl unload ~/Library/LaunchAgents/co.krypt.krd.plist ; rm ~/Library/LaunchAgents/co.krypt.krd.plist
-	   \tperl -0777 -pi -e 's/Host \*\\n\\tPKCS11Provider \/usr\/local\/lib\/kr-pkcs11.so//g' ~/.ssh/config
+	   \tperl -0777 -pi -e 's/#Causes SSH to present your Kryptonite key if paired\\nHost \*\\n\\tPKCS11Provider \/usr\/local\/lib\/kr-pkcs11.so//g' ~/.ssh/config
 	   \tbrew uninstall kr
   EOS
   end
