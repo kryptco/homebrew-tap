@@ -52,10 +52,7 @@ class Kr < Formula
    def caveats; <<-EOS.undent
 	   kr is now up and running! Type "kr pair" to begin using it.
 
-	   kr can be uninstalled by running 
-	   \tlaunchctl unload ~/Library/LaunchAgents/co.krypt.krd.plist ; rm ~/Library/LaunchAgents/co.krypt.krd.plist
-	   \tperl -0777 -pi -e 's\\n/# Added by Kryptonite\\nHost \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so//g' ~/.ssh/config
-	   \tbrew uninstall kr
+	   kr can be uninstalled by running "kr uninstall"
   EOS
   end
 
