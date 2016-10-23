@@ -2,7 +2,7 @@ require "language/go"
 class Kr < Formula
   desc "Kryptonite command line client, daemon, and SSH integration"
   homepage "https://krypt.co"
-  version "1.0.6"
+  version "1.0.7"
   head "https://github.com/agrinman/kr.git"
   url "-"
 
