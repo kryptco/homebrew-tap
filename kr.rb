@@ -7,8 +7,6 @@ class Kr < Formula
       :tag => "1.0.7"
   end
 
-  revision 1
-
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
