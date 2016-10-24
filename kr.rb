@@ -12,9 +12,6 @@ class Kr < Formula
 	sha256 "8cc6a9577a7762e09ad5ea06993ab12e8c1effd80266eacaa2e2e0e4c67ae21a" => :yosemite
   end
 
-
-  option "HEAD", "Install HEAD version"
-
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "libsodium"
