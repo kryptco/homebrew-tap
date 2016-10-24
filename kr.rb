@@ -24,6 +24,8 @@ class Kr < Formula
 	  url "https://github.com/agrinman/kr.git"
   end
 
+  option "HEAD", "Install HEAD revision"
+
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "libsodium"
