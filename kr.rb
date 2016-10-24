@@ -1,10 +1,8 @@
 class Kr < Formula
   desc "Kryptonite command line client, daemon, and SSH integration"
   homepage "https://krypt.co"
-  stable do
-	  url "https://github.com/kryptco/kr.git",
-      :tag => "1.0.7"
-  end
+  url "https://github.com/kryptco/kr.git", :tag => "1.0.7"
+  head "https://github.com/agrinman/kr.git"
 
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
@@ -14,9 +12,6 @@ class Kr < Formula
 	sha256 "8cc6a9577a7762e09ad5ea06993ab12e8c1effd80266eacaa2e2e0e4c67ae21a" => :yosemite
   end
 
-  head do
-	  url "https://github.com/agrinman/kr.git"
-  end
 
   option "HEAD", "Install HEAD version"
 
