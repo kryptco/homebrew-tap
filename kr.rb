@@ -20,6 +20,10 @@ class Kr < Formula
 	  url "https://github.com/agrinman/kr.git", :using => :git
   end
 
+  head do
+	  url "https://github.com/agrinman/kr.git", :using => :git
+  end
+
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "libsodium"
