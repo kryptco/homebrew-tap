@@ -21,7 +21,7 @@ class Kr < Formula
   end
 
   head do
-	  url "https://github.com/agrinman/kr.git", :using => :git
+	  url "https://github.com/agrinman/kr.git"
   end
 
   depends_on "go" => :build
