@@ -1,7 +1,7 @@
 class Kr < Formula
   desc "Kryptonite command line client, daemon, and SSH integration"
   homepage "https://krypt.co"
-  url "https://github.com/kryptco/kr.git", :tag => "1.0.7"
+  url "https://github.com/kryptco/kr.git", :tag => "v1.0.7"
   head "https://github.com/agrinman/kr.git"
 
   bottle do
