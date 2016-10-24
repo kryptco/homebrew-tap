@@ -16,10 +16,6 @@ class Kr < Formula
 	sha256 "8cc6a9577a7762e09ad5ea06993ab12e8c1effd80266eacaa2e2e0e4c67ae21a" => :yosemite
   end
 
-  devel do
-	  url "https://github.com/agrinman/kr.git", :using => :git
-  end
-
   head do
 	  url "https://github.com/agrinman/kr.git"
   end
