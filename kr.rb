@@ -12,7 +12,7 @@ class Kr < Formula
 	cellar :any
 	sha256 "84e6c2994cdee1dcb1e11c0b99e2a625831655191629b12dc49368d29c16ecc7" => :yosemite
 	sha256 "347b385ea21d1d7a5f513d4ab161e548dc8135e1a9d02d2aaca8c67907b38cc2" => :el_capitan
-	sha256 "eb8495a2aaeeb8ff8ead7fae5ba2810078339b5978c32b2662df2ce4997b7efc" => :sierra
+	sha256 "e1f0eb473bc72865c11165b475800739833889d157a324558e1a956e291970c3" => :sierra
   end
 
   depends_on "go" => :build
