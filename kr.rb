@@ -4,7 +4,7 @@ class Kr < Formula
   url "https://github.com/kryptco/kr.git", :tag => "1.0.11"
 
   #devel do
-	  #url "https://github.com/agrinman/kr.git", :tag => "1.0.12"
+	  #url "https://github.com/agrinman/kr.git", :tag => "1.0.11"
   #end
 
   bottle do
@@ -12,7 +12,7 @@ class Kr < Formula
 	cellar :any
 	sha256 "70b0e89a4f475d2fd829469335685d259782950d81b072a1e7386a842f121a49" => :yosemite
 	sha256 "56db792d0a3b74e385cbf5b5df52684a0e6993071201b665258a8002d376184a" => :el_capitan
-	sha256 "7f6c939f2764e549ec805ee73277e6e19c9b96c51e57576b19887a5676425cc1" => :sierra
+	sha256 "42429c3e00f9f70b51bd6c781cadb73f7e3022498def5a170df4e75b48e425ad" => :sierra
   end
 
   depends_on "go" => :build
