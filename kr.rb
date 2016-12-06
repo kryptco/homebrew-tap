@@ -3,9 +3,9 @@ class Kr < Formula
   homepage "https://krypt.co"
   url "https://github.com/kryptco/kr.git", :tag => "1.0.13"
 
-  #devel do
-	  #url "https://github.com/agrinman/kr.git", :tag => "1.0.13"
-  #end
+  devel do
+	  url "https://github.com/agrinman/kr.git", :tag => "1.0.14"
+  end
 
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
