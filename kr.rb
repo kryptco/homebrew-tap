@@ -4,7 +4,7 @@ class Kr < Formula
   url "https://github.com/kryptco/kr.git", :tag => "1.0.14"
 
   #devel do
-	  #url "https://github.com/agrinman/kr.git", :tag => "1.0.14"
+	  #url "https://github.com/kryptco/kr.git", :tag => "1.0.14"
   #end
 
   bottle do
@@ -24,22 +24,22 @@ class Kr < Formula
 	  ENV["GOOS"] = "darwin"
 	  ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
 
-	  dir = buildpath/"src/github.com/agrinman/kr"
+	  dir = buildpath/"src/github.com/kryptco/kr"
 	  dir.install buildpath.children
 
-	  cd "src/github.com/agrinman/kr/kr" do
+	  cd "src/github.com/kryptco/kr/kr" do
 		  system "go", "build", "-o", bin/"kr"
 	  end
-	  cd "src/github.com/agrinman/kr/krd" do
+	  cd "src/github.com/kryptco/kr/krd" do
 		  system "go", "build", "-o", bin/"krd"
 	  end
-	  cd "src/github.com/agrinman/kr/pkcs11" do
+	  cd "src/github.com/kryptco/kr/pkcs11" do
 		  system "make"
 	  end
-	  lib.install "src/github.com/agrinman/kr/pkcs11/kr-pkcs11.so"
+	  lib.install "src/github.com/kryptco/kr/pkcs11/kr-pkcs11.so"
 
-	  (share/"kr").install "src/github.com/agrinman/kr/share/kr.png"
-	  (share/"kr").install "src/github.com/agrinman/kr/share/co.krypt.krd.plist"
+	  (share/"kr").install "src/github.com/kryptco/kr/share/kr.png"
+	  (share/"kr").install "src/github.com/kryptco/kr/share/co.krypt.krd.plist"
 
   end
 
