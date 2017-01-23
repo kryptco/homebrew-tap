@@ -15,6 +15,7 @@ class Kr < Formula
 	sha256 "36372e113bd3966c728efe7a3e11448b2405f77d65afaa5d7ef8eb16d5cfd008" => :sierra
   end
 
+  depends_on "rust" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "libsodium"
