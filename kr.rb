@@ -3,8 +3,8 @@ class Kr < Formula
   homepage "https://krypt.co"
   url "https://github.com/kryptco/kr.git", :tag => "1.0.14"
 
-  devel do
-	  url "https://github.com/kryptco/kr.git", :tag => "1.0.15"
+  head do
+	  url "https://github.com/kryptco/kr.git"
   end
 
   bottle do
