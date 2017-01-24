@@ -50,7 +50,7 @@ class Kr < Formula
 
   def post_install
 	  #	add PKCS11Provider to ssh_config if not present
-	  system "touch ~/.ssh/config; perl -0777 -ne '/\\n# Added by Kryptonite\\nHost \\*\\n\\tIdentityAgent ~\\/.kr\\/krd-agent.sock\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so/ || exit(1)' ~/.ssh/config || echo \"\\\\n# Added by Kryptonite\\nHost *\\\\n\\\\tIdentityAgent ~\\\\/.kr\\\\/krd-agent.sock\\\\n\\\\n\\\\tPKCS11Provider /usr/local/lib/kr-pkcs11.so\" >> ~/.ssh/config"
+	  system "touch ~/.ssh/config; perl -0777 -ne '/\\n# Added by Kryptonite\\nHost \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so/ || exit(1)' ~/.ssh/config || echo \"\\\\n# Added by Kryptonite\\nHost *\\\\n\\\\tPKCS11Provider /usr/local/lib/kr-pkcs11.so\" >> ~/.ssh/config"
 	  system "mkdir -p ~/Library/LaunchAgents; cp /usr/local/share/kr/co.krypt.krd.plist ~/Library/LaunchAgents"
 	  system "launchctl unload ~/Library/LaunchAgents/co.krypt.krd.plist || true"
 	  system "launchctl load ~/Library/LaunchAgents/co.krypt.krd.plist"
