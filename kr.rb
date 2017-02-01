@@ -38,7 +38,7 @@ class Kr < Formula
 		  system "make"
 	  end
 	  lib.install "src/github.com/kryptco/kr/pkcs11shim/target/release/kr-pkcs11.so"
-	  cd "src/github.com/kryptco/kr/pkcs11/loggingdylib" do
+	  cd "src/github.com/kryptco/kr/loggingdylib" do
 		  system "make"
 	  end
 	  lib.install "src/github.com/kryptco/kr/loggingdylib/target/release/libkrlogging.dylib"
