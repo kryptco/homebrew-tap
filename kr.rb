@@ -34,10 +34,10 @@ class Kr < Formula
 	  cd "src/github.com/kryptco/kr/krd" do
 		  system "go", "build", "-o", bin/"krd"
 	  end
-	  cd "src/github.com/kryptco/kr/pkcs11" do
+	  cd "src/github.com/kryptco/kr/pkcs11shim" do
 		  system "make"
 	  end
-	  lib.install "src/github.com/kryptco/kr/pkcs11/kr-pkcs11.so"
+	  lib.install "src/github.com/kryptco/kr/pkcs11shim/target/release/kr-pkcs11.so"
 	  cd "src/github.com/kryptco/kr/pkcs11/loggingdylib" do
 		  system "make"
 	  end
