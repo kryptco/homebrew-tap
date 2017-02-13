@@ -7,6 +7,10 @@ class Kr < Formula
 	  url "https://github.com/kryptco/kr.git", :tag => "1.0.15"
   end
 
+  head do
+	  url "https://github.com/kryptco/kr.git"
+  end
+
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
@@ -34,6 +38,9 @@ class Kr < Formula
 	  cd "src/github.com/kryptco/kr/krd" do
 		  system "go", "build", "-o", bin/"krd"
 	  end
+	  cd "src/github.com/kryptco/kr/krssh" do
+		  system "go", "build", "-o", bin/"krssh"
+	  end
 	  cd "src/github.com/kryptco/kr/pkcs11shim" do
 		  system "make"
 	  end
@@ -50,7 +57,7 @@ class Kr < Formula
 
   def post_install
 	  #	add PKCS11Provider to ssh_config if not present
-	  system "touch ~/.ssh/config; perl -0777 -ne '/\\n# Added by Kryptonite\\nHost \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so/ || exit(1)' ~/.ssh/config || echo \"\\\\n# Added by Kryptonite\\nHost *\\\\n\\\\tPKCS11Provider /usr/local/lib/kr-pkcs11.so\" >> ~/.ssh/config"
+	  system "touch ~/.ssh/config; perl -0777 -ne '/\\n# Added by Kryptonite\\nHost \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so/\\n\\tProxyCommand \\/usr\\/local\\/bin\\/krssh || exit(1)' ~/.ssh/config || echo \"\\\\n# Added by Kryptonite\\nHost *\\\\n\\\\tPKCS11Provider /usr/local/lib/kr-pkcs11.so\\\\n\\\\tProxyCommand /usr/local/bin/krssh %h %p\" >> ~/.ssh/config"
 	  system "mkdir -p ~/Library/LaunchAgents; cp /usr/local/share/kr/co.krypt.krd.plist ~/Library/LaunchAgents"
 	  system "launchctl unload ~/Library/LaunchAgents/co.krypt.krd.plist || true"
 	  system "launchctl load ~/Library/LaunchAgents/co.krypt.krd.plist"
