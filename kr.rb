@@ -35,7 +35,7 @@ class Kr < Formula
 	  cd "src/github.com/kryptco/kr/kr" do
 		  system "go", "build", "-o", bin/"kr"
 	  end
-	  cd "src/github.com/kryptco/kr/krd" do
+	  cd "src/github.com/kryptco/kr/krd/main" do
 		  system "go", "build", "-o", bin/"krd"
 	  end
 	  cd "src/github.com/kryptco/kr/krssh" do
