@@ -14,9 +14,9 @@ class Kr < Formula
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
-	sha256 "f07856534f51b748d03e99240b170c37de445898ce0947cba429349b0722e248" => :yosemite
-	sha256 "9cfb2431d1805af816ed2dbdc0354ebbff8af08fdc748b9c384f0762b82155fd" => :el_capitan
-	sha256 "5b079e3aefc7ef2ef2ddc18f29babe255c595a36ffcd95033432cb0d8543e1c8" => :sierra
+	sha256 "9e0783d97b017b4ddd2aa46d442bde0b84802bdca8fd384d03d04e1a5e8090fd" => :yosemite
+	sha256 "b401c506917ca0845c264d2f7b4bbfcb87484b5a0a77888299879e1adea64086" => :el_capitan
+	sha256 "04820059cff885d0f5a76c5495a3e67e0096c2cbc3ace79a51678b8644c0524c" => :sierra
   end
 
   depends_on "rust" => :build
@@ -33,13 +33,13 @@ class Kr < Formula
 	  dir.install buildpath.children
 
 	  cd "src/github.com/kryptco/kr/kr" do
-		  system "go", "build", "-o", bin/"kr"
+		  system "go", "build", "-ldflags", "-s", "-o", bin/"kr"
 	  end
 	  cd "src/github.com/kryptco/kr/krd/main" do
-		  system "go", "build", "-o", bin/"krd"
+		  system "go", "build", "-ldflags", "-s", "-o", bin/"krd"
 	  end
 	  cd "src/github.com/kryptco/kr/krssh" do
-		  system "go", "build", "-o", bin/"krssh"
+		  system "go", "build", "-ldflags", "-s", "-o", bin/"krssh"
 	  end
 	  cd "src/github.com/kryptco/kr/pkcs11shim" do
 		  system "make"
