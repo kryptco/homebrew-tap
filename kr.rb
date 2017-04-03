@@ -4,7 +4,7 @@ class Kr < Formula
   url "https://github.com/kryptco/kr.git", :tag => "2.0.1"
 
   devel do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.0.2"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.0.3"
   end
 
   head do
@@ -14,9 +14,9 @@ class Kr < Formula
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
-	sha256 "9e0783d97b017b4ddd2aa46d442bde0b84802bdca8fd384d03d04e1a5e8090fd" => :yosemite
-	sha256 "b401c506917ca0845c264d2f7b4bbfcb87484b5a0a77888299879e1adea64086" => :el_capitan
-	sha256 "04820059cff885d0f5a76c5495a3e67e0096c2cbc3ace79a51678b8644c0524c" => :sierra
+	sha256 "a6b78774685bff220d4bf79c9d1dd039db402f79e70dbb1a7a60184f8f79496f" => :yosemite
+	sha256 "b867248a9c8fc3760e4054b1c1cda6c750678ebd7695dfc91ebe5ed04f15c14f" => :el_capitan
+	sha256 "4d334be413c0e0462afcf3d0b03ba12369d8f9ec049a40e1d5c0bf7c7f425847" => :sierra
   end
 
   depends_on "rust" => :build
