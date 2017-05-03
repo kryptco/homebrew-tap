@@ -1,7 +1,7 @@
 class Kr < Formula
   desc "Kryptonite command line client, daemon, and SSH integration"
   homepage "https://krypt.co"
-  url "https://github.com/kryptco/kr.git", :tag => "2.0.3"
+  url "https://github.com/kryptco/kr.git", :tag => "2.0.4"
 
   devel do
 	  url "https://github.com/kryptco/kr.git", :tag => "2.0.4"
@@ -14,9 +14,9 @@ class Kr < Formula
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
-	sha256 "dbcf28b9f00bd0b85d7670ad646aca0d5052bd0785e4f311211ff3bd82d061a8" => :yosemite
-	sha256 "aa5eba355ce043899911146b133be01a965a3e5302bd6e4e8a8b8136c49b4f7d" => :el_capitan
-	sha256 "67daf0d9f68734afe0183091c6693c697865fac167afa2b303431047b2329767" => :sierra
+	sha256 "7875decaaf609e3588f9c1d7053099d5dd705462b0fcd06e13a772899e3492fa" => :yosemite
+	sha256 "5aa422a3fc726b91a93fbe308cce927ea01179110f0afd1aebe12f2c1ca77174" => :el_capitan
+	sha256 "9d68f0812630b08e0547a83ff90bdfddf152bf166bbac37bd3b480a63f6410ce" => :sierra
   end
 
   depends_on "rust" => :build
