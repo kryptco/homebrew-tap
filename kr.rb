@@ -60,8 +60,7 @@ class Kr < Formula
 	  # add current ssh_config
 	  system "perl -0777 -ne '/# Added by Kryptonite\\nHost \\*\\n\\tPKCS11Provider \\/usr\\/local\\/lib\\/kr-pkcs11.so\\n\\tProxyCommand \\/usr\\/local\\/bin\\/krssh %h %p\\n\\tIdentityFile ~\\/.ssh\\/id_kryptonite\\n\\tIdentityFile ~\\/.ssh\\/id_ed25519\\n\\tIdentityFile ~\\/.ssh\\/id_rsa\\n\\tIdentityFile ~\\/.ssh\\/id_ecdsa\\n\\tIdentityFile ~\\/.ssh\\/id_dsa/ || exit(1)' ~/.ssh/config || echo \"\\\\n# Added by Kryptonite\\nHost *\\\\n\\\\tPKCS11Provider /usr/local/lib/kr-pkcs11.so\\\\n\\\\tProxyCommand /usr/local/bin/krssh %h %p\\\\n\\\\tIdentityFile ~/.ssh/id_kryptonite\\\\n\\\\tIdentityFile ~/.ssh/id_ed25519\\\\n\\\\tIdentityFile ~/.ssh/id_rsa\\\\n\\\\tIdentityFile ~/.ssh/id_ecdsa\\\\n\\\\tIdentityFile ~/.ssh/id_dsa\" >> ~/.ssh/config"
 	  system "mkdir -p ~/Library/LaunchAgents; cp #{prefix}/share/kr/co.krypt.krd.plist ~/Library/LaunchAgents"
-	  system "launchctl unload ~/Library/LaunchAgents/co.krypt.krd.plist || true"
-	  system "launchctl load ~/Library/LaunchAgents/co.krypt.krd.plist"
+	  system "kr restart"
   end
 
    def caveats; <<-EOS.undent
