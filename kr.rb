@@ -4,7 +4,7 @@ class Kr < Formula
   url "https://github.com/kryptco/kr.git", :tag => "2.0.5"
 
   devel do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.0.5"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.1.0"
   end
 
   head do
