@@ -24,7 +24,7 @@ class Kr < Formula
   depends_on "pkg-config" => :build
   depends_on "libsodium"
 
-  option "without-ssh-config", "Do not modify ~/.ssh/config"
+  option "with-no-ssh-config", "Do not modify ~/.ssh/config"
 
   def install
 	  ENV["GOPATH"] = buildpath
@@ -55,7 +55,7 @@ class Kr < Formula
   
   def post_install
 	  escaped_prefix = HOMEBREW_PREFIX.to_s.gsub '/', '\\/'
-	  if build.without? "ssh-config"
+	  if build.with? "no-ssh-config"
 	  else
 		  system "mkdir -p ~/.ssh"
 		  # remove old ssh_config entries
@@ -70,7 +70,7 @@ class Kr < Formula
   end
 
    def caveats
-	   if build.without? "ssh-config"
+	   if build.with? "no-ssh-config"
 		   return <<-EOS.undent
 	   Please add the following to your ssh config:
 
