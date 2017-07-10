@@ -43,6 +43,9 @@ class Kr < Formula
 	  cd "src/github.com/kryptco/kr/krssh" do
 		  system "go", "build", "-ldflags", "-s", "-o", bin/"krssh"
 	  end
+	  cd "src/github.com/kryptco/kr/krgpg" do
+		  system "go", "build", "-ldflags", "-s", "-o", bin/"krgpg"
+	  end
 	  cd "src/github.com/kryptco/kr/pkcs11shim" do
 		  system "make"
 	  end
