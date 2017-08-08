@@ -4,11 +4,11 @@ class Kr < Formula
   url "https://github.com/kryptco/kr.git", :tag => "2.2.5"
 
   devel do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.2.5"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.2.6"
   end
 
   head do
-	  url "https://github.com/kryptco/kr.git", :branch => "installation-tweaks"
+	  url "https://github.com/kryptco/kr.git"
   end
 
   bottle do
