@@ -25,7 +25,7 @@ class Kr < Formula
   depends_on "pkg-config" => :build
   depends_on "libsodium"
 
-  option "with-no-ssh-config", "Do not modify ~/.ssh/config"
+  option "with-no-ssh-config", "DEPRECATED -- export KR_SKIP_SSH_CONFIG=1 to prevent kr from changing ~/.ssh/config"
 
   def install
 	  ENV["GOPATH"] = buildpath
@@ -54,6 +54,13 @@ class Kr < Formula
 
 	  (share/"kr").install "src/github.com/kryptco/kr/share/kr.png"
 	  (share/"kr").install "src/github.com/kryptco/kr/share/co.krypt.krd.plist"
+
+	  if ENV["KRYPTCO_CODESIGN"] then
+		  system "codesign" "-s" "3rd Party Mac Developer Application: KryptCo, Inc. (W7AMYM5LPN)" bin/"kr"
+		  system "codesign" "-s" "3rd Party Mac Developer Application: KryptCo, Inc. (W7AMYM5LPN)" bin/"krd"
+		  system "codesign" "-s" "3rd Party Mac Developer Application: KryptCo, Inc. (W7AMYM5LPN)" bin/"krssh"
+		  system "codesign" "-s" "3rd Party Mac Developer Application: KryptCo, Inc. (W7AMYM5LPN)" bin/"krgpg"
+	  end
 
   end
   
