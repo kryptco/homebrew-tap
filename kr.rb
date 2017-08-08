@@ -23,7 +23,6 @@ class Kr < Formula
   depends_on "rust" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-  depends_on "libsodium"
 
   option "with-no-ssh-config", "DEPRECATED -- export KR_SKIP_SSH_CONFIG=1 to prevent kr from changing ~/.ssh/config"
 
