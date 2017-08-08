@@ -74,29 +74,7 @@ class Kr < Formula
   end
 
    def caveats
-	   if build.with? "no-ssh-config"
-		   return <<-EOS.undent
-	   Please add the following to your ssh config:
-
-	   # Added by Kryptonite
-	   Host *
-	   \tPKCS11Provider #{HOMEBREW_PREFIX}/lib/kr-pkcs11.so
-	   \tProxyCommand #{HOMEBREW_PREFIX}/bin/krssh %h %p
-	   \tIdentityFile ~/.ssh/id_kryptonite
-	   \tIdentityFile ~/.ssh/id_ed25519
-	   \tIdentityFile ~/.ssh/id_rsa
-	   \tIdentityFile ~/.ssh/id_ecdsa
-	   \tIdentityFile ~/.ssh/id_dsa
-
-	   kr is now up and running! Type "kr pair" to begin using it.
-	   kr can be uninstalled by running "kr uninstall"
-		   EOS
-	   else
-		   return <<-EOS.undent
-	   kr is now up and running! Type "kr pair" to begin using it.
-	   kr can be uninstalled by running "kr uninstall"
-		   EOS
-	   end
-  end
+	   return "Installation with brew is temporarily disabled, please install kr with `curl https://krypt.co/kr | sh`"
+   end
 
 end
