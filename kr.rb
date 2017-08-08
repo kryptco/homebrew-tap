@@ -8,7 +8,7 @@ class Kr < Formula
   end
 
   head do
-	  url "https://github.com/kryptco/kr.git"
+	  url "https://github.com/kryptco/kr.git", :branch => "installation-tweaks"
   end
 
   bottle do
