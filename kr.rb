@@ -1,10 +1,10 @@
 class Kr < Formula
   desc "Kryptonite command line client, daemon, and SSH integration"
   homepage "https://krypt.co"
-  url "https://github.com/kryptco/kr.git", :tag => "2.2.7"
+  url "https://github.com/kryptco/kr.git", :tag => "2.3.0"
 
   devel do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.2.7"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.3.0"
   end
 
   head do
@@ -14,10 +14,9 @@ class Kr < Formula
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any
-	sha256 "c24d51df5cb1a775ed5e7250a2d59f953ae243e0956134092bad68008f47e9bc" => :yosemite
-	sha256 "fe4d321c85e81d3d40e677b049ef4deff6653155935547360993b9f14e2c80dd" => :el_capitan
-	sha256 "5c801201f7e718d7868189586da236ed2d853520f9447e1d3ab96e70976f125e" => :sierra
-	sha256 "5c801201f7e718d7868189586da236ed2d853520f9447e1d3ab96e70976f125e" => :high_sierra
+	sha256 "d89cfdc8db838d646ab51ee4204b2ba313301ef8089bbc86845e49b36414dbbb" => :el_capitan
+	sha256 "b966f81d976b8393d1bc43a0ceb8220f3d6615578aa04d72a6ed5b1298b7c7a2" => :sierra
+	sha256 "fef88203d2f9b4cf3b381e3694e49f3b6a3493203a4c56701e6605f2754eb0de" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -31,28 +30,17 @@ class Kr < Formula
 	  ENV["GOOS"] = "darwin"
 	  ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
 
+
 	  dir = buildpath/"src/github.com/kryptco/kr"
 	  dir.install buildpath.children
 
-	  cd "src/github.com/kryptco/kr/kr" do
-		  system "go", "build", "-ldflags", "-s", "-o", bin/"kr"
+	  cd "src/github.com/kryptco/kr" do
+		  oldPrefix = ENV["PREFIX"]
+		  ENV["PREFIX"] = prefix
+		  system "make", "install"
+		  ENV["PREFIX"] = oldPrefix
 	  end
-	  cd "src/github.com/kryptco/kr/krd/main" do
-		  system "go", "build", "-ldflags", "-s", "-o", bin/"krd"
-	  end
-	  cd "src/github.com/kryptco/kr/krssh" do
-		  system "go", "build", "-ldflags", "-s", "-o", bin/"krssh"
-	  end
-	  cd "src/github.com/kryptco/kr/krgpg" do
-		  system "go", "build", "-ldflags", "-s", "-o", bin/"krgpg"
-	  end
-	  cd "src/github.com/kryptco/kr/pkcs11shim" do
-		  system "make"
-	  end
-	  lib.install "src/github.com/kryptco/kr/pkcs11shim/target/release/kr-pkcs11.so"
 
-	  (share/"kr").install "src/github.com/kryptco/kr/share/kr.png"
-	  (share/"kr").install "src/github.com/kryptco/kr/share/co.krypt.krd.plist"
   end
   
   def post_install
