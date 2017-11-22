@@ -3,17 +3,13 @@ class Kr < Formula
   homepage "https://krypt.co"
   url "https://github.com/kryptco/kr.git", :tag => "2.3.0"
 
-  devel do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.3.0"
-  end
-
   head do
 	  url "https://github.com/kryptco/kr.git"
   end
 
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
-	cellar :any
+	cellar :any_skip_relocation
 	sha256 "8eb19cae9e600a1fce25c5e8d0b08b7589f26b055c48d998e599558672a9b718" => :el_capitan
 	sha256 "0c26baab3c204cdac590f9bb6c2b49d6332b234c2b97991cd41f7524a32f48c5" => :sierra
 	sha256 "8c3a76db5d1705be9fe17385580ec740fc2dd88314fa91e4366471c174ae347e" => :high_sierra
@@ -43,9 +39,6 @@ class Kr < Formula
 
   end
   
-  def post_install
-  end
-
    def caveats
 	   return "kr is now installed! Run `kr pair` to pair with the Kryptonite app."
    end
