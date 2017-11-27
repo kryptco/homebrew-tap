@@ -10,9 +10,10 @@ class Kr < Formula
   bottle do
 	root_url "https://github.com/kryptco/bottles/raw/master"
 	cellar :any_skip_relocation
-	sha256 "8eb19cae9e600a1fce25c5e8d0b08b7589f26b055c48d998e599558672a9b718" => :el_capitan
-	sha256 "0c26baab3c204cdac590f9bb6c2b49d6332b234c2b97991cd41f7524a32f48c5" => :sierra
-	sha256 "8c3a76db5d1705be9fe17385580ec740fc2dd88314fa91e4366471c174ae347e" => :high_sierra
+	rebuild 8
+	sha256 "5688792e79692a5873b2eab249e39b57c34aac9979c19e96f6c895274d6990f2" => :el_capitan
+	sha256 "07aaf8b57e1e8c52efff7749498d448397296def6abb3bb5f28bec17a567d104" => :sierra
+	sha256 "2fe93574d959031ae572b0119215156f3d653dfe15f865190b5c33cfdc655045" => :high_sierra
   end
 
   depends_on "rust" => :build
