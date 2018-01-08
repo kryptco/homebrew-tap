@@ -23,7 +23,7 @@ class Kr < Formula
   depends_on "rust" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if MacOS.version >= "10.12"
 
   def install
     ENV["GOPATH"] = buildpath
