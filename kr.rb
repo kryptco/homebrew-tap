@@ -3,7 +3,7 @@ class Kr < Formula
   homepage "https://krypt.co"
 
   stable do
-    url "https://github.com/kryptco/kr.git", :tag => "2.3.1"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.4.0"
   end
 
   bottle do
@@ -22,8 +22,13 @@ class Kr < Formula
   option "with-no-ssh-config", "DEPRECATED -- export KR_SKIP_SSH_CONFIG=1 to prevent kr from changing ~/.ssh/config"
 
   depends_on "rust" => :build
+  depends_on "rustup" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "emscripten" => :build
+  depends_on "binaryen" => :build
+  #depends_on "python@2" => :build # to fetch emscripten binaryen port
+  depends_on "libsodium" => :build # to fetch emscripten binaryen port
   depends_on :xcode => :build if MacOS.version >= "10.12"
 
   def install
@@ -33,6 +38,35 @@ class Kr < Formula
 
     dir = buildpath/"src/github.com/kryptco/kr"
     dir.install buildpath.children
+
+	system "mkdir", "-p", ENV["HOME"]
+
+	system "emcc"
+	#system "sed", "-i", "", "/^BINARYEN_ROOT/d", ENV["HOME"] + "/.emscripten"
+	system "sed", "-i", "-e", "s/^BINARYEN_ROOT.*/BINARYEN_ROOT = \\'\\/usr\\/local\\/opt\\/binaryen\\'/", ENV["HOME"] + "/.emscripten"
+	system "sed", "-i", "", "/^LLVM_ROOT/d", ENV["HOME"] + "/.emscripten"
+	system "sh", "-c", "echo LLVM_ROOT = \\'/usr/local/opt/emscripten/libexec/llvm/bin\\' >> #{ENV["HOME"]}/.emscripten"
+	system "sed", "-i", "-e", "s/^NODE_JS.*/NODE_JS = \\'\\/usr\\/local\\/bin\\/node\\'/", ENV["HOME"] + "/.emscripten"
+	system "cat", ENV["HOME"] + "/.emscripten"
+	system "ls", "/usr/local/opt/emscripten/libexec/llvm/bin"
+	
+	#system "sh", "-c", "
+	#curl -O https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz &&
+	#tar -xzf emsdk-portable.tar.gz &&
+	#ls &&
+	#source emsdk-portable/emsdk_env.sh &&
+	#emsdk update &&
+	#emsdk install sdk-incoming-64bit &&
+	#emsdk activate sdk-incoming-64bit
+	#"
+
+	ENV["PATH"] = ENV["HOME"] + "/.cargo/bin" + ":" + ENV["PATH"]
+
+	#system "touch", ENV["HOME"] + "/.profile"
+	system "rustup-init", "-y"
+	system "rustup", "target", "add", "wasm32-unknown-emscripten"
+
+	system "cargo", "install", "cargo-web"
 
     cd "src/github.com/kryptco/kr" do
       old_prefix = ENV["PREFIX"]
