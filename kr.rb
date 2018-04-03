@@ -28,6 +28,7 @@ class Kr < Formula
   depends_on "emscripten" => :build
   depends_on "binaryen" => :build
   depends_on "libsodium" => :build
+  depends_on "rsync" => :build
   depends_on :xcode => :build if MacOS.version >= "10.12"
 
   def install
