@@ -3,11 +3,11 @@ class Kr < Formula
   homepage "https://krypt.co"
 
   stable do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.4.0"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.4.2"
   end
 
   bottle do
-    rebuild 2
+    rebuild 1
     root_url "https://github.com/kryptco/bottles/raw/master"
     cellar :any_skip_relocation
     sha256 "9c11e1b39494821001b536780622ae287351055c5174388369a8be17d4196d97" => :el_capitan
