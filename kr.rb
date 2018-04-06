@@ -52,7 +52,7 @@ class Kr < Formula
 	system "rustup-init", "-y"
 	system "rustup", "target", "add", "wasm32-unknown-emscripten"
 
-	system "cargo", "install", "--debug", "--version=0.6.9", "cargo-web"
+	system "cargo", "install", "--debug", "--version=0.6.10", "cargo-web"
 
     cd "src/github.com/kryptco/kr" do
       old_prefix = ENV["PREFIX"]
