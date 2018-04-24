@@ -7,7 +7,7 @@ class Kr < Formula
   end
 
   bottle do
-    rebuild 1
+    rebuild 2
     root_url "https://github.com/kryptco/bottles/raw/master"
     cellar :any_skip_relocation
     sha256 "2686af88d53c5e0734cac7186fa70d73c37fc7d38df56c6bb23e3543996e8e8e" => :el_capitan
