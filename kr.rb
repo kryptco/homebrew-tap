@@ -3,16 +3,16 @@ class Kr < Formula
   homepage "https://krypt.co"
 
   stable do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.4.6"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.4.7"
   end
 
   bottle do
     rebuild 2
     root_url "https://github.com/kryptco/bottles/raw/master"
     cellar :any_skip_relocation
-    sha256 "6866b6af75ca3108e93b3368ee5e86aeb7213e5eed52084c24aa3b3a3a9988bd" => :el_capitan
-    sha256 "0878653bf22a91ef3e0d595252892e1b6e421d4ba1282e129e1eacf4f81b1793" => :sierra
-    sha256 "050e9483e9c6be3107df4cbc6f0d55ab651705c2daeac7d536facfdd25ef6142" => :high_sierra
+    sha256 "340a4b511c394f203de4fc284ff964a3b186d486f1260cd8365eb3a1b9899075" => :el_capitan
+    sha256 "984783dd175469c6efec30a34f7188dd417e7ac06fbbfec339b580347fc186d3" => :sierra
+    sha256 "de5b268dedc444eed1bedfdfbcdb257c4b0c0bbefc5c6a9d8fab90964d4701d2" => :high_sierra
   end
 
   head do
