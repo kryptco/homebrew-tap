@@ -13,6 +13,7 @@ class Kr < Formula
     sha256 "f651251059dd2d1de2d6f8f7fcc773cf918afcf938d7bcbb210f21a43d8d3dee" => :el_capitan
     sha256 "a55071ec9a1ce366aa20d710dcec983c48f4925518172dd2afd8f2fd4b360414" => :sierra
     sha256 "edf68cef7d25859a85639a9b2d2e8f752fae4486117a229daa693197e6a8d9f4" => :high_sierra
+    sha256 "9fc7bcd222d12059b42f8b05b18e9a55c8d671276db48a54982bcd4f009fc942" => :mojave
   end
 
   head do
