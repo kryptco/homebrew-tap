@@ -3,17 +3,17 @@ class Kr < Formula
   homepage "https://krypt.co"
 
   stable do
-	  url "https://github.com/kryptco/kr.git", :tag => "2.4.9"
+	  url "https://github.com/kryptco/kr.git", :tag => "2.4.10"
   end
 
   bottle do
     rebuild 2
     root_url "https://github.com/kryptco/bottles/raw/master"
     cellar :any_skip_relocation
-    sha256 "dc00a3550dc013fefadbfe5828d7baaec7a8f5036716bdaf00382d957a611481" => :el_capitan
-    sha256 "423afad5e4c3678882ccce26e75dc7d0e576e1bb023e60172a99bc061e4eeeba" => :sierra
-    sha256 "2077aefe22b829d307dc6047050fa569bc167f1deadfa658d168cb51314dadef" => :high_sierra
-    sha256 "e6ff6b30d13455eaf51263b79c50ef75340155f074c83b08832f3d93cda9ecc7" => :mojave
+    sha256 "fdff1ce0c05e8470d027e9b2c5b2e8cc14f7e3f4af133d58c7321f76a19443e0" => :el_capitan
+    sha256 "592097b8fdfb93f7475bfed12647231f8dbd3519c5d54af247840b06f05c9970" => :sierra
+    sha256 "e61b0ce6fb34011dda89a38d15b7929cc8c2fca15b09dc1b6db04147eda5d03a" => :high_sierra
+    sha256 "a568f5aab55a8f7a12a40d2b72c6b3d11a9cccc610571b13b7514c4fb9f9c5aa" => :mojave
   end
 
   head do
