@@ -49,7 +49,8 @@ class Kr < Formula
 	system "sed", "-i", "-e", "s/^NODE_JS.*/NODE_JS = \\'\\/usr\\/local\\/bin\\/node\\'/", ENV["HOME"] + "/.emscripten"
 
 	ENV["PATH"] = ENV["HOME"] + "/.cargo/bin" + ":" + ENV["PATH"]
-	ENV["CARGO_HOME"] = ENV["HOME"]
+	ENV["PATH"] = ENV["HOME"] + "/Library/Caches/Homebrew/cargo_cache/bin" + ":" + ENV["PATH"]
+	ENV["CARGO_HOME"] = ENV["HOME"] + "/.cargo"
 
 	system "rustup-init", "-y"
 	system "rustup", "target", "add", "wasm32-unknown-emscripten"
