@@ -14,6 +14,7 @@ class Kr < Formula
     sha256 "2285ce4eebb3ee75ab9678676c15bf133d5a3d24d2b7a4dc4da31179de699462" => :sierra
     sha256 "b5278156184a7f50ed04790ecc7081be5c3f3d82c07da64d9683bf5db19472cb" => :high_sierra
     sha256 "8901218264de65fdbf2dc258f00557e456416f9f32fb9511956d546fea0a804a" => :mojave
+    sha256 "8901218264de65fdbf2dc258f00557e456416f9f32fb9511956d546fea0a804a" => :catalina
   end
 
   head do
@@ -22,14 +23,8 @@ class Kr < Formula
 
   option "with-no-ssh-config", "DEPRECATED -- export KR_SKIP_SSH_CONFIG=1 to prevent kr from changing ~/.ssh/config"
 
-  depends_on "rust" => :build
-  depends_on "rustup" => :build
   depends_on "go" => :build
-  depends_on "pkg-config" => :build
-  depends_on "emscripten" => :build
-  depends_on "binaryen" => :build
-  depends_on "libsodium" => :build
-  depends_on "rsync" => :build
+  depends_on "rust" => :build
   depends_on :xcode => :build if MacOS.version >= "10.12"
 
   def install
@@ -40,22 +35,11 @@ class Kr < Formula
     dir = buildpath/"src/github.com/kryptco/kr"
     dir.install buildpath.children
 
-	system "mkdir", "-p", ENV["HOME"]
+    system "mkdir", "-p", ENV["HOME"]
 
-        system "emcc" # run emcc to create ~/.emscripten
-	system "sed", "-i", "-e", "s/^BINARYEN_ROOT.*/BINARYEN_ROOT = \\'\\/usr\\/local\\/opt\\/binaryen\\'/", ENV["HOME"] + "/.emscripten"
-	system "sed", "-i", "", "/^LLVM_ROOT/d", ENV["HOME"] + "/.emscripten"
-	system "sh", "-c", "echo LLVM_ROOT = \\'/usr/local/opt/emscripten/libexec/llvm/bin\\' >> #{ENV["HOME"]}/.emscripten"
-	system "sed", "-i", "-e", "s/^NODE_JS.*/NODE_JS = \\'\\/usr\\/local\\/bin\\/node\\'/", ENV["HOME"] + "/.emscripten"
-
-	ENV["PATH"] = ENV["HOME"] + "/.cargo/bin" + ":" + ENV["PATH"]
-	ENV["PATH"] = ENV["HOME"] + "/Library/Caches/Homebrew/cargo_cache/bin" + ":" + ENV["PATH"]
-	ENV["CARGO_HOME"] = ENV["HOME"] + "/.cargo"
-
-	system "rustup-init", "-y"
-	system "rustup", "target", "add", "wasm32-unknown-emscripten"
-
-	system "cargo", "install", "--debug", "--version=0.6.10", "cargo-web"
+    ENV["PATH"] = ENV["HOME"] + "/.cargo/bin" + ":" + ENV["PATH"]
+    ENV["PATH"] = ENV["HOME"] + "/Library/Caches/Homebrew/cargo_cache/bin" + ":" + ENV["PATH"]
+    ENV["CARGO_HOME"] = ENV["HOME"] + "/.cargo"
 
     cd "src/github.com/kryptco/kr" do
       old_prefix = ENV["PREFIX"]
