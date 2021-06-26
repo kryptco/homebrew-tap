@@ -28,11 +28,11 @@ class Kr < Formula
   depends_on xcode: :build if MacOS.version >= "10.12"
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = buildpath/"GOPATH"
     ENV["GOOS"] = "darwin"
     ENV["GOARCH"] = Hardware::CPU.is_64_bit? ? "amd64" : "386"
 
-    dir = buildpath/"src/github.com/kryptco/kr"
+    dir = buildpath/"GOPATH/src/github.com/kryptco/kr"
     dir.install buildpath.children
 
     mkdir_p ENV["HOME"]
@@ -41,7 +41,7 @@ class Kr < Formula
     ENV["PATH"] = ENV["HOME"] + "/Library/Caches/Homebrew/cargo_cache/bin" + ":" + ENV["PATH"]
     ENV["CARGO_HOME"] = ENV["HOME"] + "/.cargo"
 
-    cd "src/github.com/kryptco/kr" do
+    cd buildpath/"GOPATH/src/github.com/kryptco/kr" do
       old_prefix = ENV["PREFIX"]
       ENV["PREFIX"] = prefix
       system "make", "install"
